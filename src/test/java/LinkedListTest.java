@@ -37,7 +37,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void given3Nums_WhenInsertedBetween2Nums() {
+    public void given3Nums_ToInsertedBetween2Nums() {
         Node<Integer> firstNode = new Node<>(56);
         Node<Integer> secondNode = new Node<>(30);
         Node<Integer> thirdNode = new Node<>(70);
@@ -53,7 +53,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void given3Nums_WhenFirstElementDeleted_TestPassed() {
+    public void given3Nums_ToDeleteFirstElement() {
         Node<Integer> firstNode = new Node<>(56);
         Node<Integer> secondNode = new Node<>(30);
         Node<Integer> thirdNode = new Node<>(70);
@@ -69,7 +69,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void given3Nums_WhenLastElementDeleted_TestPassed() {
+    public void given3Nums_ToDeleteLastElement() {
         Node<Integer> firstNode = new Node<>(56);
         Node<Integer> secondNode = new Node<>(30);
         Node<Integer> thirdNode = new Node<>(70);
@@ -81,6 +81,20 @@ public class LinkedListTest {
         linkedList.printNodes();
         boolean res = linkedList.head.equals(firstNode) &&
                 linkedList.tail.equals(secondNode);
+        Assertions.assertTrue(res);
+    }
+
+    @Test
+    public void given3Nums_ToSearchElement() {
+        Node<Integer> firstNode = new Node<>(56);
+        Node<Integer> secondNode = new Node<>(30);
+        Node<Integer> thirdNode = new Node<>(70);
+        NewLinkedList linkedList = new NewLinkedList();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.printNodes();
+        boolean res = linkedList.search(30);
         Assertions.assertTrue(res);
     }
 }
