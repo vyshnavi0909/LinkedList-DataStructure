@@ -114,4 +114,23 @@ public class LinkedListTest {
                 linkedList.head.getNext().getNext().equals(fourthNode);
         Assertions.assertTrue(res);
     }
+
+    @Test
+    public void given3Nums_SearchAndDelete_ThenShowSize() {
+        Node<Integer> firstNode = new Node<>(56);
+        Node<Integer> secondNode = new Node<>(30);
+        Node<Integer> thirdNode = new Node<>(70);
+        Node<Integer> fourthNode = new Node<>(40);
+        NewLinkedList linkedList = new NewLinkedList();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.searchAndInsert(30, fourthNode);
+        linkedList.searchAndDelete(40);
+        linkedList.printNodes();
+        System.out.println("size: " + linkedList.size());
+        boolean res = linkedList.head.getNext().equals(secondNode) &&
+                secondNode.getNext().equals(thirdNode);
+        Assertions.assertTrue(res);
+    }
 }
