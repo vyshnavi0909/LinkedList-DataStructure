@@ -20,6 +20,7 @@ public class LinkedListTest {
         Assertions.assertTrue(res);
 
     }
+
     @Test
     public void given3Nums_WhenAppended_ShouldBeAddedToLast() {
         Node<Integer> firstNode = new Node<>(56);
@@ -29,6 +30,23 @@ public class LinkedListTest {
         linkedList.append(firstNode);
         linkedList.append(secondNode);
         linkedList.append(thirdNode);
+        linkedList.printNodes();
+        boolean res = linkedList.head.equals(firstNode) &&
+                linkedList.head.getNext().equals(secondNode) &&
+                linkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(res);
+
+    }
+
+    @Test
+    public void given3Nums_WhenInsertedBetween2Nums() {
+        Node<Integer> firstNode = new Node<>(56);
+        Node<Integer> secondNode = new Node<>(30);
+        Node<Integer> thirdNode = new Node<>(70);
+        NewLinkedList linkedList = new NewLinkedList();
+        linkedList.append(firstNode);
+        linkedList.append(thirdNode);
+        linkedList.insert(firstNode, secondNode);
         linkedList.printNodes();
         boolean res = linkedList.head.equals(firstNode) &&
                 linkedList.head.getNext().equals(secondNode) &&
