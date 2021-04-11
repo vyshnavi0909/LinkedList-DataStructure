@@ -97,4 +97,21 @@ public class LinkedListTest {
         boolean res = linkedList.search(30);
         Assertions.assertTrue(res);
     }
+
+    @Test
+    public void given3Nums_SearchElement_ThenInsert_NewElement() {
+        Node<Integer> firstNode = new Node<>(56);
+        Node<Integer> secondNode = new Node<>(30);
+        Node<Integer> thirdNode = new Node<>(70);
+        Node<Integer> fourthNode = new Node<>(40);
+        NewLinkedList linkedList = new NewLinkedList();
+        linkedList.append(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.searchAndInsert(30, fourthNode);
+        linkedList.printNodes();
+        boolean res = linkedList.head.getNext().equals(secondNode) &&
+                linkedList.head.getNext().getNext().equals(fourthNode);
+        Assertions.assertTrue(res);
+    }
 }
